@@ -1,0 +1,308 @@
+@import "_normalize";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import "_mixins";
+@import "_variables";
+@import "_buttons";
+
+
+html{
+	height: 100%;
+}
+body{
+	display: flex;
+    min-height: 100%;
+	background-color: $background;
+	min-width: 320px;
+	width: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	.wrap{
+		margin: auto;
+		
+	}
+}
+nav{
+	margin-left: 170px;
+	margin-bottom: 16px;
+	@include change-size{
+		margin-left: 0;
+		margin-top: 60px;
+	}
+}
+
+.nav{
+	padding: 0;
+	font-size: 0;
+}
+
+
+
+
+.wrapper{
+	height: 385px;
+	width: 760px;
+	overflow: hidden;
+	position: relative;
+	left:0;
+	top:0;
+	@include change-size{
+		width: 335px;
+		height: 510px;
+	}
+
+	& > article{
+		position:absolute;
+		width:100%;
+		height:100%;
+		float: left;
+		
+		 left: -100%;
+		 &:first-child{
+		 	left: 0;
+		 }
+		
+	}
+
+	.name{
+		form{
+			margin-left: 170px;
+			margin-top: -5px;
+			overflow: auto;
+			@include change-size{
+				margin-left: 0;
+			}
+		}
+		.name__text{
+			margin-top: 0;
+			margin-bottom: 40px;
+			margin-left: 170px;
+			color: $darkgrey;
+			@include change-size{
+				margin-left: 0;
+			}
+			
+		}
+		input[type='checkbox']{
+			 display: none;
+			 & + label:before {
+			    content: "";  
+			    display: inline-block;  
+			    width: 15px;  
+			    height: 15px;  
+			    vertical-align:middle;
+			    margin-right: 8px;  
+			    background-color: $white;  
+			    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+			    border-radius: 4px;  
+			}
+			&:checked + label:before {
+			    content:"\2714";
+			    color:white;
+			    background-color: $blue; 
+			    text-align:center;
+			    line-height:15px;
+			    text-shadow:0px 0px 3px #eee;
+			    
+			}
+			
+		}
+		
+		.name__form{
+			float: left;
+			&:first-child{
+				margin-top: 20px;
+				margin-right: 20px;
+			}
+			label{
+				display: block;
+				margin-bottom: 28px;
+				width: 140px;
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+			.name__field{
+				display: block;
+				height: 40px;
+				width: 255px;
+				border: 1px solid transparent;
+				padding: 0;
+				margin: 6px 0;
+				text-indent: 5px;
+				visibility: hidden;
+				@include change-size{
+					width: 159px;
+					font-size: 12px;
+					margin: 8px 0;
+				}
+				&:first-child{
+					margin-top: 9px;
+				}
+				&:last-child{
+					margin-bottom: 0;
+				}
+			}
+		}
+		.name__photo{
+			padding: 0;
+			
+			.photo__cat{
+				background-image: url(../images/cat1.jpg);
+				width: 150px;
+				height: 160px;
+				background-size: cover;
+				display: inline-block;
+				margin-right: 12px;
+				background-position: center;
+				border-radius: 2px;
+				border: 3px solid transparent;
+				cursor: pointer;
+				background-repeat: no-repeat;
+				@include change-size{
+					float: left;
+					margin-right: 7px;					
+				}
+				&:nth-child(2){
+					background-image: url(../images/cat2.jpg); 
+					background-position: center;
+					background-size: cover;
+				}
+				&:nth-child(3){
+					background-image: url(../images/cat3.jpg); 
+					background-position: center;
+					background-size: cover;
+					@include change-size{
+						@include clearfix;
+					}
+				}
+				&:last-child{
+					background-image: url(../images/dog4.jpg); 
+					background-position: center;
+					background-size: cover;
+					margin-right: 0;
+					@include change-size{
+						display: block;
+					}
+				}
+				&:hover{
+					box-shadow: 0px 0px 13px -1px #000;
+					
+				}
+			}
+		}
+		.name__footer{
+			overflow: auto;
+			@include clearfix;
+		}
+		.name-mod{
+			visibility: hidden;
+			color: #ff004c;
+			margin-left: 5px;
+			font-weight: 700;
+		}
+	}
+	.result{
+		
+		.result_wrap{
+			width: 560px;
+			height: 243px;
+			background-color: $white;
+			box-shadow: 0px 4px 13px -5px $black;
+			margin: 32px auto;
+			@include change-size{
+				width: 320px;
+				height: 419px;
+			}
+			.result_info{
+				float: left;
+				height: 195px;
+				margin-left: 24px;
+				margin-top: 24px;
+				position: relative;
+				@include change-size{
+					text-align: center;
+					margin: 0;
+					height: 190px;
+					float: none;
+				}
+				.result_name{
+					font-size: 20px;
+					font-weight: 700;
+					margin-top: 0;
+					margin-bottom: 10px;
+				}
+				.result_mail{
+					margin-bottom: 30px;
+					color: $darkgrey;
+					margin-top: 10px;
+					@include change-size{
+						margin-bottom: 25px;
+					}
+					
+				}
+				.result_address{
+					color: $darkgrey;
+					margin: 0;
+				}
+				.result_wrapper{
+					position: absolute;
+					bottom: 0;
+					@include change-size{
+						left: 60px;
+						width: 200px;
+					}
+
+				}
+			}
+			.result_img{
+				width: 200px;
+				height: 195px;
+				margin: 24px;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				float: right;
+				border-radius: 2px;
+				@include change-size{
+					@include clearfix;
+					margin: 10px auto;
+					float: none;
+				}
+			}
+		}
+	}
+}
+.field{
+	height: 55px;
+    width: 310px;
+    text-indent: 16px;
+    padding: 0;
+    border: 1px solid transparent;
+}
+.email-mod{
+	display: inline-block;
+	visibility: hidden;
+	font-weight: 700;
+	color: #ff0000;
+	@include change-size{
+		display: block;
+	}
+}
+
+.result_info p.result_soc{
+	color: $navyblue;
+	margin: 1px 0 0 0;
+	span{
+		color: $darkgrey;
+	}
+}
+
+
+
+
+.sign{
+	color: #ff9800;
+	font-size: 20px;
+}
+
+

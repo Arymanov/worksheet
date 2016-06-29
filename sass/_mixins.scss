@@ -1,0 +1,12 @@
+@mixin change-size {
+  @media (max-width: 760px) {
+    @content;
+  }
+}
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

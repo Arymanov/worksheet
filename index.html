@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+</head>
+<body>
+	<div class="wrap">
+		<nav>
+			<ul class="nav">
+				<li class="btn"><a data-name="1" class="black nav__numb">1</a></li>
+				<li class="btn"><a data-name="2" class="nav__numb">2</a></li>
+				<li class="btn"><a data-name="3" class="nav__numb">3</a></li>
+				<li class="btn"><a data-name="4" class="nav__numb">4</a></li>
+			</ul>
+		</nav>
+		<main class="wrapper">
+				<article class="name" id="name" data-id = "1">
+					<h4 class="name__text">1.Введите имя и e-mail</h4>
+					<form>
+						<p><input type="text" placeholder="Имя" class="btn field" required id="name_field"><span class="email-mod"> - Введите имя!</span></p>
+						<p><input type="email" name="email" placeholder="E-mail" class="btn field" required id="email">
+							<span class="email-mod"> - Неправильно введенный e-mail!</span></p>
+					</form>
+					<div class="name__footer">
+						<button class="btn btn_1 previous" disabled>   Предыдущий</button>
+						<button class="btn btn_1 next" id="name__first">Следующий   </button>
+					</div>
+				</article>
+				<article class="name" id="city" data-id = "2">
+					<h4 class="name__text">2.Выберите страну и город</h4>
+					<form>
+						<p><input list="countries" class="btn field" placeholder="Страна" required id="countries_list" autocomplete = "on"><span class="email-mod"> - Неправильно введенная страна!</span></p>
+						<datalist  id="countries" >
+							<select  name="country" >
+								<option disabled></option>
+							</select>
+						</datalist>
+						</p>
+						<p><input list="cities" class="btn field" placeholder="Город" required id="cities_list" autocomplete = "on"><span class="email-mod"> - Неправильно введенный город!</span></p>
+						<datalist  id="cities" >
+							<select  name = "city">
+								<option disabled></option>
+							</select>
+						</datalist>
+					</p>
+					</form>
+					<div class="name__footer">
+						<button class="btn btn_1 previous">   Предыдущий</button>
+						<button class="btn btn_1 next" id="name__second">Следующий   </button>
+					</div>
+				</article>
+				<article class="name" id="social" data-id = "3">
+					<h4 class="name__text">3.Отметьте социальные сети</h4>
+					<form>
+						<div class="name__form">
+							<input type="checkbox" name="facebook" id="check1" > 
+							<label for="check1">Facebook</label>
+								
+							<input type="checkbox" name="vk" id="check2"> 
+							<label for="check2">Vkontakte</label>
+								
+							<input type="checkbox" name="twitter" id="check3">
+							<label for="check3"> Twitter</label>
+								
+							<input type="checkbox" name="klass" id="check4"> 
+							<label for="check4">Одноклассники</label>
+								
+						</div>
+						<div class="name__form">
+							<input type="text" placeholder="Cтраница в Facebook" name="Facebook" class="btn name__field">
+							<input type="text" placeholder="Страница в Vkontakte" name="Vkontakte" class="btn name__field">
+							<input type="text" placeholder="Страница в Twitter" name="Twitter" class="btn name__field">
+							<input type="text" placeholder="Страница в Одноклассники" name = "Одноклассники" class="btn name__field">
+						</div>
+					</form>
+					<div class="name__footer">
+						<button class="btn btn_0 btn_1 previous">   Предыдущий</button>
+						<button class="btn btn_0 btn_1 next" id="name__third">Следующий   </button>
+					</div>
+				</article>
+				<article class="name" id="cat" data-id = "4">
+					<h4 class="name__text">4.Выберите любимого котика</h4>
+					<ul class="name__photo">
+						<li class="photo__cat"></li>
+						<li class="photo__cat"></li>
+						<li class="photo__cat"></li>
+						<li class="photo__cat"></li>
+					</ul>
+					<p class="name-mod">Вы выбрали собачку.А надо котика.</p>
+					<div class="name__footer">
+						<button class="btn btn_2 btn_1 previous">   Предыдущий</button>
+						<button class="btn btn_2 btn_3 btn_1 " id="name__fourth">Завершить</button>
+					</div>
+				</article>
+				<article class="result" data-id = "5">
+					<div class="result_wrap">
+						<div class="result_info">
+							<p class="result_name"></p>
+							<p class="result_mail"></p>
+							<p class="result_address"></p>
+							<div class="result_wrapper"></div>
+						</div>
+						<div class="result_img"></div>
+					</div>
+					<button class="btn btn_2 btn_3 btn_1 btn_4" id="result">Пройти заново</button>
+				</article>
+		</main>
+		
+	</div>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/java.js"></script>
+</body>
+</html>
