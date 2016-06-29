@@ -332,14 +332,13 @@ document.getElementById('cities_list').addEventListener('input', function () {
 var cities,
     numberOfCities,
     checkCountries = [],
-    cityCode;
+    cityCode,
+    checkCities = [];
 //getting info from JSON
 function insertJSON(countryPath,cityPath){
-   var str2 = '{"1": "Ukraine","2": "Germany","3": "France","4": "Spain","5": "Sweden","6": "USA","7": "Canada","8": "Moldova","9": "Belarus","10": "Poland"}' ;
-        countryObj = JSON.parse(str2);
 
-        
-    
+    $.getJSON(countryPath, function (data) {
+        countryObj = data;
         numberOfCities = new Array(countryObj.length);
         cities = new Array(10);
         var ind = 0;
@@ -347,19 +346,15 @@ function insertJSON(countryPath,cityPath){
             numberOfCities[ind++] = 0;
         }
         
-        
         $.each(countryObj, function(key, val) {
             
             $('#countries').append('<option value="' + val + '">' + val + '</option>');
            checkCountries.push(val);
         });
+    }
     
-
-
-
-var checkCities = [];
-    var str1 = '{"1": {"country": 1, "name": "Kiev"},"2": {"country": 3, "name": "Paris"},"3": {"country": 4, "name": "Madrid"},"4": {"country": 6, "name": "Houston"},"5": {"country": 7, "name": "Montreal"},"6": {"country": 8, "name": "Кишинев"},"7": {"country": 9, "name": "Minsk"},"8": {"country": 10, "name": "Warsaw"},"100": {"country": 1, "name": "Львов"},"101": {"country": 1, "name": "Николаев"},"103": {"country": 1, "name": "Переяслав-Хмельницкий"},"104": {"country": 1, "name": "Каменец-Подольский"},"105": {"country": 1, "name": "Donetsk"},"106": {"country": 1, "name": "Kharkov"},"107": {"country": 1, "name": "Луцк"},"108": {"country": 1, "name": "Poltava"},"109": {"country": 1, "name": "Черновцы"},"299": {"country": 1, "name": "Чернигов"},"333": {"country": 1, "name": "Чернигов"}}';
-        dataObj = JSON.parse(str1);
+    $.getJSON(cityPath, function (data) {
+        dataObj = data;
         
         $.each(dataObj,function(key,val){
             numberOfCities[val.country - 1]++;
@@ -380,6 +375,8 @@ var checkCities = [];
             
             $('#cities').append('<option value="' + val.name + '">' + val.name + '</option>');
            checkCities.push(val.name);       
-        });   
-}     
+        });
+    }   
+}
+insertJSON('data/countries.json','data/cities.json');  
     
