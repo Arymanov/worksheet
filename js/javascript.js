@@ -351,7 +351,7 @@ function insertJSON(countryPath,cityPath){
             $('#countries').append('<option value="' + val + '">' + val + '</option>');
            checkCountries.push(val);
         });
-    }
+    });
     
     $.getJSON(cityPath, function (data) {
         dataObj = data;
@@ -376,7 +376,7 @@ function insertJSON(countryPath,cityPath){
             $('#cities').append('<option value="' + val.name + '">' + val.name + '</option>');
            checkCities.push(val.name);       
         });
-    }   
+    });  
 }
 insertJSON('data/countries.json','data/cities.json');  
     
