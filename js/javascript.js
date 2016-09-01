@@ -175,9 +175,12 @@ $("input[type = 'checkbox']").click(function(){
     };
 });
 
+// cancel warning
+
 $('.name__field').click(function(){
     $(this).css({'border-color':'transparent'});
 })
+
 // moving to the fourth page
 
 $('#name__third').click(function() {
@@ -265,6 +268,8 @@ var dataObj,
     inputCountries = '', 
     countriesCase = [],
     citiesCase = [];
+
+    //input of the countries
 document.getElementById('countries_list').addEventListener('input', function () {
 
     $('#cities').empty();
@@ -285,7 +290,8 @@ document.getElementById('countries_list').addEventListener('input', function () 
 
             $('#cities').append('<option value="' + cities[countryCode-1][i] + '">' + cities[countryCode-1][i] + '</option>');      
         } 
-    }
+    }//show cities of the country
+
     if(inputCountries == ''){
         for(var i = 0; i <checkCities.length; i++){
 
@@ -295,6 +301,8 @@ document.getElementById('countries_list').addEventListener('input', function () 
     
 });
 var inputCities = '';
+
+//input of the cities
 
 document.getElementById('cities_list').addEventListener('input', function () {
     
@@ -311,11 +319,13 @@ document.getElementById('cities_list').addEventListener('input', function () {
         citiesCase.push(checkCities[i].toLowerCase());
     } 
 
+    
+
     for(var i = 0; i< checkCountries.length;i++){
         if( i+1 == countryCode){
             $('#countries').append('<option value="' + checkCountries[i] + '">' + checkCountries[i] + '</option>'); 
         }
-    }
+    }//show countries of this city
 
     
     
@@ -340,7 +350,7 @@ function insertJSON(countryPath,cityPath){
     $.getJSON(countryPath, function (data) {
         countryObj = data;
         numberOfCities = new Array(countryObj.length);
-        cities = new Array(10);
+        cities = new Array(10);//making two dimensional array of countries and cities
         var ind = 0;
         for(key in countryObj){
             numberOfCities[ind++] = 0;
